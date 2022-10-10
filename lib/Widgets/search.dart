@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Search extends StatelessWidget {
+  final city;
+  String x = "";
+  Search({super.key, required this.city});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,6 +16,9 @@ class Search extends StatelessWidget {
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: TextField(
+          onChanged: (value) {
+            x = value;
+          },
           decoration: InputDecoration(
             contentPadding: EdgeInsets.all(15.0),
             hintText: "Search",
@@ -20,7 +26,9 @@ class Search extends StatelessWidget {
             suffixIcon: IconButton(
               icon: Icon(CupertinoIcons.search),
               color: Colors.black,
-              onPressed: () {},
+              onPressed: () {
+                city(x);
+              },
             ),
           ),
         ),
