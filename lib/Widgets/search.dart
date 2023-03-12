@@ -1,15 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Search extends StatelessWidget {
+class Search extends StatefulWidget {
   final city;
-  String x = "";
+
   Search({super.key, required this.city});
+
+  @override
+  State<Search> createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
+  String x = "";
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding:
-          EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0, bottom: 20.0),
+          EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0, bottom: 10.0),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -27,7 +35,7 @@ class Search extends StatelessWidget {
               icon: Icon(CupertinoIcons.search),
               color: Colors.black,
               onPressed: () {
-                city(x);
+                widget.city(x);
               },
             ),
           ),
